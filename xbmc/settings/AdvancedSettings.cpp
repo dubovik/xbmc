@@ -1104,6 +1104,8 @@ void CAdvancedSettings::ParseSettingsFile(const CStdString &file)
     XMLUtils::GetBoolean(pPVR, "channeliconsautoscan", m_bPVRChannelIconsAutoScan);
     XMLUtils::GetBoolean(pPVR, "autoscaniconsuserset", m_bPVRAutoScanIconsUserSet);
     XMLUtils::GetInt(pPVR, "numericchannelswitchtimeout", m_iPVRNumericChannelSwitchTimeout, 50, 60000);
+	//dima
+	XMLUtils::GetString(pPVR, "defaultchannelgroup", m_sDefaultChannelGroup);
   }
 
   XMLUtils::GetBoolean(pRootElement, "measurerefreshrate", m_measureRefreshrate);
