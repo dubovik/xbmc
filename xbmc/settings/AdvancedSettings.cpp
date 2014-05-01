@@ -365,7 +365,9 @@ void CAdvancedSettings::Initialize()
   m_bPVRChannelIconsAutoScan       = true;
   m_bPVRAutoScanIconsUserSet       = false;
   m_iPVRNumericChannelSwitchTimeout = 1000;
-
+  //dima
+  m_sDefaultChannelGroup = "";
+  
   m_measureRefreshrate = false;
 
   m_cacheMemBufferSize = 1024 * 1024 * 20;

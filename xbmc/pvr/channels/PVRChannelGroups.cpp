@@ -32,6 +32,8 @@
 #include "pvr/PVRDatabase.h"
 #include "pvr/PVRManager.h"
 #include "pvr/addons/PVRClients.h"
+//dima
+#include "settings/AdvancedSettings.h"
 
 using namespace PVR;
 
@@ -293,8 +295,16 @@ bool CPVRChannelGroups::Load(void)
     return false;
   }
 
-  // set the internal group as selected at startup
-  SetSelectedGroup(internalChannels);
+  //dima
+  CPVRChannelGroupPtr defaultChannelGroup = GetByName(g_advancedSettings.m_sDefaultChannelGroup);
+  CLog::Log(LOGDEBUG, "PVR - default channel group: %s", __FUNCTION__, g_advancedSettings.m_sDefaultChannelGroup);
+
+  if (defaultChannelGroup) {
+	  SetSelectedGroup(defaultChannelGroup);
+  } else {
+	  // set the internal group as selected at startup
+	  SetSelectedGroup(internalChannels);
+  }
 
   CLog::Log(LOGDEBUG, "PVR - %s - %d %s channel groups loaded", __FUNCTION__, (int) m_groups.size(), m_bRadio ? "radio" : "TV");
 
